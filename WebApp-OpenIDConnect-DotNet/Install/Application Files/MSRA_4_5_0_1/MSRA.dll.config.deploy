@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+  <configSections>
+    <section name="Test" type="System.Configuration.NameValueFileSectionHandler, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+    <section name="Uat" type="System.Configuration.NameValueFileSectionHandler, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+    <section name="Prod" type="System.Configuration.NameValueFileSectionHandler, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+    <section name="Dev" type="System.Configuration.NameValueFileSectionHandler, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  </configSections>
+  <appSettings>
+    <add key="MaxRetryCount" value="3" />
+    <add key="RetryInterval" value="100" />
+    <add key="ClientSettingsProvider.ServiceUri" value="" />
+  </appSettings>
+  <Dev>
+    <add key="AADInstance" value="login.windows-ppe.net" />
+    <add key="AADTenant" value="common/oauth2/authorize" />
+    <add key="ClientId" value="afeab5c6-d407-4d10-96ce-95055527c716" />
+    <add key="RedirectUri" value="https://msra/reply" />
+    <add key="ICResourceId" value="0000001b-0000-0000-c000-000000000000" />
+    <add key="GraphResourceId" value="https://graph.ppe.windows.net" />
+    <add key="GraphTennant" value="microsoft.com">
+    </add>
+    <add key="GraphDomain" value="graph.ppe.windows.net" />
+    <add key="ICDomain" value="MSRAINT.mdw.infocatalog-int2.azure-test.net" />
+    <add key="ICSearchDomain" value="f686d426-8d16-42db-81b7-ab578e110ccd.infocatalog-int2.azure-test.net" />
+    <add key="PublisherIcon" value="http://aka.ms/msradevicon" />
+  </Dev>
+  <Test>
+    <add key="AADInstance" value="login.windows-ppe.net" />
+    <add key="AADTenant" value="common/oauth2/authorize" />
+    <add key="ClientId" value="afeab5c6-d407-4d10-96ce-95055527c716" />
+    <add key="RedirectUri" value="https://msra/reply" />
+    <add key="ICResourceId" value="0000001b-0000-0000-c000-000000000000" />
+    <add key="GraphResourceId" value="https://graph.ppe.windows.net" />
+    <add key="GraphTennant" value="microsoft.com">
+    </add>
+    <add key="GraphDomain" value="graph.ppe.windows.net" />
+    <add key="ICDomain" value="MSRAINT.mdw.infocatalog-int2.azure-test.net" />
+    <add key="ICSearchDomain" value="f686d426-8d16-42db-81b7-ab578e110ccd.infocatalog-int2.azure-test.net" />
+    <add key="PublisherIcon" value="http://aka.ms/msratesticon" />
+  </Test>
+  <Uat>
+    <add key="AADInstance" value="login.windows.net" />
+    <add key="AADTenant" value="common/oauth2/authorize" />
+    <add key="ClientId" value="afeab5c6-d407-4d10-96ce-95055527c716" />
+    <add key="RedirectUri" value="https://msra/reply" />
+    <add key="ICResourceId" value="0000001b-0000-0000-c000-000000000000" />
+    <add key="GraphResourceId" value="https://graph.windows.net" />
+    <add key="GraphTennant" value="microsoft.com">
+    </add>
+    <add key="GraphDomain" value="graph.windows.net" />
+    <add key="ICDomain" value="MSRAPROD.mdw.infocatalog.azure.com" />
+    <add key="ICSearchDomain" value="72f988bf-86f1-41af-91ab-2d7cd011db47.infocatalog.azure.com" />
+    <add key="PublisherIcon" value="http://aka.ms/msrauaticon" />
+  </Uat>
+  <Prod>
+    <add key="AADInstance" value="login.windows.net" />
+    <add key="AADTenant" value="common/oauth2/authorize" />
+    <add key="ClientId" value="afeab5c6-d407-4d10-96ce-95055527c716" />
+    <add key="RedirectUri" value="https://msra/reply" />
+    <add key="ICResourceId" value="0000001b-0000-0000-c000-000000000000" />
+    <add key="GraphResourceId" value="https://graph.windows.net" />
+    <add key="GraphTennant" value="microsoft.com">
+    </add>
+    <add key="GraphDomain" value="graph.windows.net" />
+    <add key="ICDomain" value="MSRAPROD.mdw.infocatalog.azure.com" />
+    <add key="ICSearchDomain" value="72f988bf-86f1-41af-91ab-2d7cd011db47.infocatalog.azure.com" />
+    <add key="PublisherIcon" value="http://aka.ms/msraprodicon" />
+  </Prod>
+  <startup>
+    <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5" />
+  </startup>
+  <runtime>
+    <assemblyBinding xmlns="urn:schemas-microsoft-com:asm.v1">
+      <dependentAssembly>
+        <assemblyIdentity name="Newtonsoft.Json" publicKeyToken="30ad4fe6b2a6aeed" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-6.0.0.0" newVersion="6.0.0.0" />
+      </dependentAssembly>
+    </assemblyBinding>
+  </runtime>
+  <system.web>
+    <membership defaultProvider="ClientAuthenticationMembershipProvider">
+      <providers>
+        <add name="ClientAuthenticationMembershipProvider" type="System.Web.ClientServices.Providers.ClientFormsAuthenticationMembershipProvider, System.Web.Extensions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" serviceUri="" />
+      </providers>
+    </membership>
+    <roleManager defaultProvider="ClientRoleProvider" enabled="true">
+      <providers>
+        <add name="ClientRoleProvider" type="System.Web.ClientServices.Providers.ClientRoleProvider, System.Web.Extensions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" serviceUri="" cacheTimeout="86400" />
+      </providers>
+    </roleManager>
+  </system.web>
+</configuration>

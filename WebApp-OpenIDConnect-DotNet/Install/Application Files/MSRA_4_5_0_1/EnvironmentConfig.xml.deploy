@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!-- Mandatory attributes (Description, DisplayUrl, DisplayName) for codesign -->
+<!-- ConfigFileName attribute is for any modifications required in configuration file for each environment -->
+<!-- AppManifestFileName and VSTODeploymentFileName are used while doing mage and code sign -->
+<!-- Attributes PublisherName, SupportUrl and InstallUrl are used while publishing clickonce -->
+<OfficeAddinConfig ConfigFileName="MSRAnalytics.cfg"  PublisherName="" SupportUrl="" Description="MSRA Excel Client" DisplayUrl="https://microsoft.sharepoint.com/teams/msra" DisplayName="MSRA" AppManifestFileName="MSRA.dll.manifest" VSTODeploymentFileName="MSRA.vsto">
+  <Environments>
+    <!-- If any updates required in confiuration file then please provide XPath and Value to replace as below for each environment-->
+    <EnvironmentItem Name="DevBuild" InstallUrl="" IsActive="false">
+      <ConfigurationSettings>
+        <ConfigItem XPath="//AppSettings/@StartupServer1" Value="AZCUMSRDEVSQL04" Prefix="" NameSpace="" />
+        <ConfigItem XPath="//AppSettings/@ENVIRONMENT" Value="0" Prefix="" NameSpace="" />
+        <ConfigItem XPath="//AppSettings/@StartupDatabase" Value="MsrApplicationInfoEx" Prefix="" NameSpace="" />
+      </ConfigurationSettings>
+    </EnvironmentItem>
+    <EnvironmentItem Name="TestBuild" InstallUrl="" IsActive="true">
+      <ConfigurationSettings>
+        <ConfigItem XPath="//AppSettings/@StartupServer1" Value="AZCUMSRTSTSQL02" Prefix="" NameSpace="" />
+        <ConfigItem XPath="//AppSettings/@ENVIRONMENT" Value="1" Prefix="" NameSpace="" />
+        <ConfigItem XPath="//AppSettings/@StartupDatabase" Value="MsrApplicationInfoEx" Prefix="" NameSpace="" />
+      </ConfigurationSettings>
+    </EnvironmentItem>
+    <EnvironmentItem Name="UATBuild" InstallUrl="" IsActive="true">
+      <ConfigurationSettings>
+        <ConfigItem XPath="//AppSettings/@StartupServer1" Value="MSRAUAT.Redmond.corp.microsoft.com" Prefix="" NameSpace="" />
+        <ConfigItem XPath="//AppSettings/@ENVIRONMENT" Value="2" Prefix="" NameSpace="" />
+        <ConfigItem XPath="//AppSettings/@StartupDatabase" Value="MsrApplicationInfoEx" Prefix="" NameSpace="" />
+      </ConfigurationSettings>
+    </EnvironmentItem>
+    <EnvironmentItem Name="ProdBuild" InstallUrl="" IsActive="true">
+      <ConfigurationSettings>
+        <ConfigItem XPath="//AppSettings/@StartupServer1" Value="MSRAPROD.Redmond.corp.microsoft.com" Prefix="" NameSpace="" />
+        <ConfigItem XPath="//AppSettings/@ENVIRONMENT" Value="3" Prefix="" NameSpace="" />
+        <ConfigItem XPath="//AppSettings/@StartupDatabase" Value="MsrApplicationInfoEx" Prefix="" NameSpace="" />
+      </ConfigurationSettings>
+    </EnvironmentItem>
+  </Environments>
+  <!-- Provide assemblies names here to submit for strong name and authenticode -->
+  <StrongNameAssemblies>
+    <StrongNameAssembly Name="MSRA.dll" />
+    <StrongNameAssembly Name="MSRXBizEngine.dll" />
+    <StrongNameAssembly Name="MSRXCommon.dll" />
+    <StrongNameAssembly Name="MSRXControls.dll" />
+    <StrongNameAssembly Name="MSRXDAL.dll" />
+    <StrongNameAssembly Name="MSRXReportPublishing.dll" />
+    <StrongNameAssembly Name="MSRXInfoCatalogUtils.dll" />
+    <StrongNameAssembly Name="MSRXEmail.dll" />
+  </StrongNameAssemblies>
+</OfficeAddinConfig>

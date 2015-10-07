@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<MSReports>
+	
+	<!--	 		INSTRUCTIONS
+				************
+		Please modify the following AppSettings to point to Test/Production environment.
+		Here is the brief discription of each attribute that needs to be changed.		
+    This is just a sample, below in AppSettings is the actual place.
+		StartupServer1="<StartupServerName>"  	  Specify the MSRA central startup server name here. 		
+		StartupDatabase="MSRXApplicationInfo"      Specify the Database name where the list of MSRA applications are specified  		
+		ConnectionTimeOut="240" 		  The connection time out setting in Seconds. This is the time that MSRA waits while establishing a SQL connection to SQL Server databases
+
+		CommandTimeout ="15" 		  The waiting time for running a command (except query running related) in minutes
+
+
+		******* Please do not add any extra characters or change any other data than specified ****
+			
+				End of Instructions
+				*******************
+	-->
+
+			
+<AppSettings
+    StartupServer1="AZCUMSRDEVSQL04"
+		StartupDatabase="MsrApplicationInfoEx"
+		ConnectionTimeOut="120"
+		CommandTimeout = "120"	
+		StartupServer2="" 
+		ToolTitle="MSRA"
+    ToolVersion="4.5.0.2"
+    ENVIRONMENT ="0"
+    NotificationsRefreshTime="24">
+	</AppSettings>
+
+
+
+	<!--	    	These are initial default settings for a user. 
+		    *******Please do not modify any of these options*******
+	-->
+
+
+	<MSRUser>
+		<MSRUserOptions AutoFilter="0" 
+				AutoFitColumns="1" 
+				ColumnHeaders="1" 
+				DefaultAppID="-1" 
+				DefaultAutoFormat="-4154" 
+				DefaultCurrencyFormat="4" 
+				DefaultNumberFormat="1" 
+				DisplaySubTotals="1"
+				DocumentQuery="1" 
+				GrandTotalColumns="1" 
+				GrandTotalRows="1" 
+				ShowToolTips="1" 
+				ShowToolBar="1" 
+				UseDefaultFields="1" 
+				SendMail="1" 
+				FrmQueryHeight="0" 
+				FrmQueryWidth="0"
+				LogUIEvents="0"
+				DaysToKeepLogs="7"
+				UninstallMSR25="1"
+        PowerBiEnabledForMSRA ="1"
+        UserHasPowerPivotAccess="0"
+        IsPowerQuerySelectedInPivotCanvas="1"
+        UserHasPowerQueryAccess="0"
+    >
+		</MSRUserOptions>
+		<Applications>
+			<Application ApplicationID="-1" 
+				     ApplicationName="" 
+				     ApplicationDescription="" 
+				     DefaultPerspectiveId="-1" 
+				     QueryServer="" 
+				     AppMiddleTierServer1="" 
+				     AppMiddleTierServer2="" 
+				     AppMiddleTierDb=""
+            IsPowerBiEnabled="0"
+            IsPowerQueryEnabled="0">
+				<Perspectives>
+					<Perspective PerspectiveId="-1" 
+						     PerspectiveName="" 
+						     DefaultQuery="">
+					</Perspective>
+				</Perspectives>
+			</Application>
+		</Applications>
+	</MSRUser>
+
+
+</MSReports>
